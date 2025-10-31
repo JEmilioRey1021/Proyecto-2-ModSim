@@ -2,7 +2,7 @@
 import argparse, json, os, time
 from datetime import datetime
 import chess
-from mcts_core import mcts_search
+from mcts_core_anterior import mcts_search
 from tb_utils import TBLite, probe_wdl, probe_dtz, best_moves_by_tb, wdl_to_score
 
 HELP = """Comandos:

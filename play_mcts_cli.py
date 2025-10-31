@@ -2,7 +2,7 @@
 import argparse, json, os, time
 from datetime import datetime
 import chess
-from mcts_core import mcts_search  # noqa
+from mcts_core_anterior import mcts_search  # noqa
 
 HELP = """Comandos:
 - UCI: e2e4, g1f3, e7e8q
