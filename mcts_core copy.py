@@ -6,6 +6,14 @@ from tb_utils import probe_wdl, wdl_to_score
 C_PUCT = 2.5  # Más exploración
 ROLLOUT_MAX_PLIES = 30
 
+# --- Heurística de Endgame ---
+PRIOR_N = 10
+PRIOR_W_MATE = 1000.0
+PRIOR_W_CHECK = 200.0
+PRIOR_W_WIN = 5.0
+PRIOR_W_DRAW = 0.5
+PRIOR_W_LOSS = -5.0
+
 @dataclass
 class Node:
     board: chess.Board
@@ -59,13 +67,6 @@ def select(node: 'Node') -> tuple['Node', list[tuple[str, any]]]:
         cur = best_child
     
     return cur, debug_path
-
-PRIOR_N = 10
-PRIOR_W_MATE = 1000.0
-PRIOR_W_CHECK = 200.0
-PRIOR_W_WIN = 5.0
-PRIOR_W_DRAW = 0.5
-PRIOR_W_LOSS = -5.0
 
 def expand(node: 'Node', tb=None, root_turn=None) -> tuple['Node', dict]:
     """Expande con heurística de endgame que considera TODAS las piezas"""
@@ -185,6 +186,34 @@ def expand(node: 'Node', tb=None, root_turn=None) -> tuple['Node', dict]:
     
     return node, debug_info
 
+def compare_moves_with_theoretical(board, theoretical_moves):
+    """Compara los movimientos generados con los movimientos teóricos correctos."""
+    moves = list(board.legal_moves)
+    theoretical_count = 0
+    correct_moves = []
+    
+    for mv in moves:
+        if mv.uci() in theoretical_moves:
+            theoretical_count += 1
+            correct_moves.append(mv.uci())
+    
+    total_moves = len(moves)
+    accuracy = (theoretical_count / total_moves) * 100 if total_moves > 0 else 0
+    
+    return {
+        'theoretical_count': theoretical_count,
+        'total_moves': total_moves,
+        'accuracy': accuracy,
+        'correct_moves': correct_moves
+    }
+
+def print_comparison_stats(stats):
+    """Muestra las estadísticas de comparación entre los movimientos teóricos y los generados"""
+    print(f"Total de movimientos: {stats['total_moves']}")
+    print(f"Movimientos teóricos correctos: {stats['theoretical_count']}")
+    print(f"Precisión de los movimientos: {stats['accuracy']:.2f}%")
+    print(f"Movimientos correctos: {', '.join(stats['correct_moves'])}")
+
 def is_piece_hanging(board: chess.Board, square: int) -> bool:
     piece = board.piece_at(square)
     if not piece:
@@ -208,218 +237,8 @@ def is_piece_hanging(board: chess.Board, square: int) -> bool:
     
     return False
 
-def rollout_policy(board: chess.Board, visited_positions: set) -> chess.Move | None:
-    moves = list(board.legal_moves)
-    if not moves:
-        return None
-
-    scored_moves = []
-    piece_values = {1: 1, 2: 3, 3: 3, 4: 5, 5: 9, 6: 0}
-    
-    for m in moves:
-        score = 0
-        moved_piece = board.piece_at(m.from_square)
-        moved_piece_value = piece_values.get(moved_piece.piece_type if moved_piece else 0, 0)
-        
-        board.push(m)
-        
-        pos_key = board.fen().split(' ')[0]
-        if pos_key in visited_positions:
-            score -= 1000
-        
-        if board.is_checkmate():
-            board.pop()
-            return m
-        
-        if board.is_check():
-            score += 150
-        
-        if is_piece_hanging(board, m.to_square):
-            penalty = moved_piece_value * 100
-            score -= penalty
-        
-        if board.is_capture(board.peek()):
-            captured_value = piece_values.get(board.piece_type_at(m.to_square), 0)
-            score += captured_value * 20
-            
-            if captured_value > moved_piece_value:
-                score += 50
-        
-        if moved_piece and moved_piece.piece_type in [4, 5]:
-            enemy_king = board.king(not board.turn)
-            if enemy_king:
-                dist = chess.square_distance(m.to_square, enemy_king)
-                score += (8 - dist) * 8
-        
-        if moved_piece and moved_piece.piece_type == 6:
-            center_squares = [chess.D4, chess.D5, chess.E4, chess.E5]
-            if m.to_square in center_squares:
-                score += 5
-        
-        if board.is_stalemate() or board.is_insufficient_material():
-            score -= 500
-        
-        board.pop()
-        scored_moves.append((m, score))
-    
-    scored_moves.sort(key=lambda x: x[1], reverse=True)
-    
-    if not scored_moves:
-        return None
-    
-    top_moves = [m for m, s in scored_moves[:3] if s >= scored_moves[0][1] - 20]
-    return random.choice(top_moves) if top_moves else scored_moves[0][0]
-
-def evaluate_endgame_position(board: chess.Board, root_turn: chess.Color) -> float:
-    if board.is_checkmate():
-        return 1.0 if board.turn != root_turn else -1.0
-    
-    if board.is_stalemate() or board.is_insufficient_material():
-        return 0.0
-    
-    piece_values = {1: 1, 2: 3, 3: 3, 4: 5, 5: 9}
-    
-    our_material = sum(
-        piece_values.get(board.piece_type_at(sq), 0)
-        for sq in board.pieces(chess.PAWN, root_turn)
-    ) + sum(
-        piece_values.get(board.piece_type_at(sq), 0)
-        for sq in board.pieces(chess.KNIGHT, root_turn)
-    ) + sum(
-        piece_values.get(board.piece_type_at(sq), 0)
-        for sq in board.pieces(chess.BISHOP, root_turn)
-    ) + sum(
-        piece_values.get(board.piece_type_at(sq), 0)
-        for sq in board.pieces(chess.ROOK, root_turn)
-    ) + sum(
-        piece_values.get(board.piece_type_at(sq), 0)
-        for sq in board.pieces(chess.QUEEN, root_turn)
-    )
-    
-    their_material = sum(
-        piece_values.get(board.piece_type_at(sq), 0)
-        for sq in board.pieces(chess.PAWN, not root_turn)
-    ) + sum(
-        piece_values.get(board.piece_type_at(sq), 0)
-        for sq in board.pieces(chess.KNIGHT, not root_turn)
-    ) + sum(
-        piece_values.get(board.piece_type_at(sq), 0)
-        for sq in board.pieces(chess.BISHOP, not root_turn)
-    ) + sum(
-        piece_values.get(board.piece_type_at(sq), 0)
-        for sq in board.pieces(chess.ROOK, not root_turn)
-    ) + sum(
-        piece_values.get(board.piece_type_at(sq), 0)
-        for sq in board.pieces(chess.QUEEN, not root_turn)
-    )
-    
-    material_diff = our_material - their_material
-    
-    if material_diff < 0:
-        return -0.8
-    
-    if our_material > their_material:
-        their_king = board.king(not root_turn)
-        our_king = board.king(root_turn)
-        
-        if their_king and our_king:
-            file = chess.square_file(their_king)
-            rank = chess.square_rank(their_king)
-            center_dist = max(abs(file - 3.5), abs(rank - 3.5))
-            
-            king_dist = chess.square_distance(our_king, their_king)
-            
-            material_score = min(material_diff / 10.0, 0.5)
-            
-            position_score = (center_dist / 10.0) - (king_dist / 20.0)
-            
-            return min(material_score + position_score, 0.95)
-    
-    return 0.1  
-
-def simulate(board, max_plies=ROLLOUT_MAX_PLIES, tb=None, root_turn=None) -> tuple[float, dict]:
-    debug_info = {
-        'phase': 'simulate',
-        'plies': 0,
-        'moves': [],
-        'tb_hit': False,
-        'outcome': None
-    }
-    
-    if root_turn is None:
-        root_turn = board.turn
-
-    if tb is not None and tb.obj is not None:
-        wdl = probe_wdl(board, tb.obj)
-        if wdl is not None:
-            s = wdl_to_score(wdl)
-            result = s if board.turn == root_turn else -s
-            debug_info['tb_hit'] = True
-            debug_info['outcome'] = f'TB_immediate_{wdl}'
-            return result, debug_info
-
-    plies = 0
-    sim_board = board.copy()
-    visited_positions = set()
-    
-    while plies < max_plies:
-        if sim_board.is_checkmate() or sim_board.is_stalemate() or \
-           sim_board.is_insufficient_material() or sim_board.halfmove_clock >= 100:
-            break
-        
-        if tb is not None and tb.obj is not None:
-            wdl_mid = probe_wdl(sim_board, tb.obj)
-            if wdl_mid is not None:
-                s = wdl_to_score(wdl_mid)
-                result = s if sim_board.turn == root_turn else -s
-                debug_info['tb_hit'] = True
-                debug_info['plies'] = plies
-                debug_info['outcome'] = f'TB_mid_{wdl_mid}'
-                return result, debug_info
-        
-        pos_key = sim_board.fen().split(' ')[0]
-        if pos_key in visited_positions:
-            result = evaluate_endgame_position(sim_board, root_turn)
-            debug_info['plies'] = plies
-            debug_info['outcome'] = 'cycle_detected'
-            return result * 0.3, debug_info
-        
-        visited_positions.add(pos_key)
-        
-        mv = rollout_policy(sim_board, visited_positions)
-        if mv is None:
-            break
-        
-        debug_info['moves'].append(mv.uci())
-        sim_board.push(mv)
-        plies += 1
-
-    debug_info['plies'] = plies
-    
-    if sim_board.is_checkmate():
-        result = 1.0 if sim_board.turn != root_turn else -1.0
-        debug_info['outcome'] = 'checkmate'
-    elif sim_board.is_stalemate() or sim_board.is_insufficient_material():
-        result = 0.0
-        debug_info['outcome'] = 'draw'
-    else:
-        result = evaluate_endgame_position(sim_board, root_turn)
-        debug_info['outcome'] = f'heuristic_{result:.2f}'
-    
-    return result, debug_info
-
-def backpropagate(node, value):
-    cur = node
-    sign = 1
-    
-    while cur is not None:
-        cur.N += 1
-        cur.W += value * sign
-        cur.Q = cur.W / cur.N
-        sign *= -1
-        cur = cur.parent
-
-def mcts_search(root_board, time_limit=1.0, seed=None, tb=None, debug_callback=None):
+def mcts_search(root_board, theoretical_moves, time_limit=1.0, seed=None, tb=None, debug_callback=None):
+    """Búsqueda MCTS mejorada con comparación de movimientos teóricos"""
     if seed is not None:
         random.seed(seed)
     
@@ -449,6 +268,10 @@ def mcts_search(root_board, time_limit=1.0, seed=None, tb=None, debug_callback=N
         if debug_callback:
             debug_callback(iters, iter_debug)
     
+    # Comparación con los movimientos teóricos
+    stats = compare_moves_with_theoretical(root.board, theoretical_moves)
+    print_comparison_stats(stats)
+
     if not root.children:
         return None, {'iters': iters, 'root_N': root.N}
     
@@ -501,4 +324,3 @@ def mcts_search(root_board, time_limit=1.0, seed=None, tb=None, debug_callback=N
     }
     
     return best_move, stats
-

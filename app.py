@@ -2,7 +2,7 @@ import streamlit as st
 import chess
 import chess.svg
 import base64
-from mcts_core_anterior import mcts_search
+from mcts_core import mcts_search
 from tb_utils import TBLite
 
 # Endgames famosos con nombres descriptivos
