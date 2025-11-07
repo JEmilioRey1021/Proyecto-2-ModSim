@@ -1,0 +1,1237 @@
+{
+  "timestamp": "2025-11-07T16:33:18.373818",
+  "positions": {
+    "Mate en 1 - Dama esquina": [
+      {
+        "run": 1,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0005829334259033203,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0005829334259033203,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 2,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0004761219024658203,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0004761219024658203,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 3,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0004699230194091797,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0004699230194091797,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 4,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.00046706199645996094,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.00046706199645996094,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 5,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.00046515464782714844,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.00046515464782714844,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 6,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0004642009735107422,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0004642009735107422,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 7,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0004878044128417969,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0004878044128417969,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 8,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0004620552062988281,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0004620552062988281,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 9,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0005240440368652344,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0005240440368652344,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 10,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0005021095275878906,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0005021095275878906,
+        "iterations_winning_move": 0
+      }
+    ],
+    "Mate en 1 - Torre séptima": [
+      {
+        "run": 1,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.500412940979004,
+        "iterations_first_move": 7839,
+        "best_Q_first_move": 0.0,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 2,
+        "result": "Mate by MCTS",
+        "total_moves": 5,
+        "mate_found": true,
+        "time_first_move": 1.5003559589385986,
+        "iterations_first_move": 7201,
+        "best_Q_first_move": 0.0,
+        "time_winning_move": 0.0003361701965332031,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 3,
+        "result": "Mate by MCTS",
+        "total_moves": 5,
+        "mate_found": true,
+        "time_first_move": 1.5003929138183594,
+        "iterations_first_move": 7609,
+        "best_Q_first_move": 0.0,
+        "time_winning_move": 0.00033092498779296875,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 4,
+        "result": "Mate by MCTS",
+        "total_moves": 9,
+        "mate_found": true,
+        "time_first_move": 1.500319004058838,
+        "iterations_first_move": 7511,
+        "best_Q_first_move": 0.0,
+        "time_winning_move": 0.0006079673767089844,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 5,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.500373125076294,
+        "iterations_first_move": 7411,
+        "best_Q_first_move": 0.0,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 6,
+        "result": "Mate by MCTS",
+        "total_moves": 5,
+        "mate_found": true,
+        "time_first_move": 1.500385046005249,
+        "iterations_first_move": 7553,
+        "best_Q_first_move": 0.0,
+        "time_winning_move": 0.00032901763916015625,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 7,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.5003650188446045,
+        "iterations_first_move": 7690,
+        "best_Q_first_move": 0.0,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 8,
+        "result": "Mate by MCTS",
+        "total_moves": 5,
+        "mate_found": true,
+        "time_first_move": 1.5002648830413818,
+        "iterations_first_move": 7130,
+        "best_Q_first_move": 0.0,
+        "time_winning_move": 0.00032806396484375,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 9,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.5002880096435547,
+        "iterations_first_move": 7780,
+        "best_Q_first_move": 0.0,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 10,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.5003268718719482,
+        "iterations_first_move": 7528,
+        "best_Q_first_move": 0.0,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      }
+    ],
+    "Mate en 1 - Dama lateral": [
+      {
+        "run": 1,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0003819465637207031,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0003819465637207031,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 2,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0003561973571777344,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0003561973571777344,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 3,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.00034809112548828125,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.00034809112548828125,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 4,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0003447532653808594,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0003447532653808594,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 5,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0003440380096435547,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0003440380096435547,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 6,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0003447532653808594,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0003447532653808594,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 7,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.00034618377685546875,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.00034618377685546875,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 8,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.00034308433532714844,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.00034308433532714844,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 9,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0003418922424316406,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0003418922424316406,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 10,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0003459453582763672,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0003459453582763672,
+        "iterations_winning_move": 0
+      }
+    ],
+    "Mate en 1 - Torre banda": [
+      {
+        "run": 1,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.000308990478515625,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.000308990478515625,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 2,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0002899169921875,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0002899169921875,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 3,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.00028896331787109375,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.00028896331787109375,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 4,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0002892017364501953,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0002892017364501953,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 5,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.00029397010803222656,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.00029397010803222656,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 6,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.00028896331787109375,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.00028896331787109375,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 7,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0003261566162109375,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0003261566162109375,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 8,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0002949237823486328,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0002949237823486328,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 9,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.00030112266540527344,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.00030112266540527344,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 10,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0002999305725097656,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0002999305725097656,
+        "iterations_winning_move": 0
+      }
+    ],
+    "Mate en 1 - Dos torres": [
+      {
+        "run": 1,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0004200935363769531,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0004200935363769531,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 2,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.000408172607421875,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.000408172607421875,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 3,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0004029273986816406,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0004029273986816406,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 4,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0005030632019042969,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0005030632019042969,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 5,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0004169940948486328,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0004169940948486328,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 6,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.00041985511779785156,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.00041985511779785156,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 7,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0004119873046875,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0004119873046875,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 8,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0004048347473144531,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0004048347473144531,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 9,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0004050731658935547,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0004050731658935547,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 10,
+        "result": "Mate by MCTS",
+        "total_moves": 1,
+        "mate_found": true,
+        "time_first_move": 0.0004038810729980469,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 10000.0,
+        "time_winning_move": 0.0004038810729980469,
+        "iterations_winning_move": 0
+      }
+    ],
+    "Mate en 2 - Basic 1": [
+      {
+        "run": 1,
+        "result": "Mate by MCTS",
+        "total_moves": 2,
+        "mate_found": true,
+        "time_first_move": 1.5004217624664307,
+        "iterations_first_move": 20142,
+        "best_Q_first_move": 1.049,
+        "time_winning_move": 0.000370025634765625,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 2,
+        "result": "Mate by MCTS",
+        "total_moves": 2,
+        "mate_found": true,
+        "time_first_move": 1.5003690719604492,
+        "iterations_first_move": 20147,
+        "best_Q_first_move": 1.048,
+        "time_winning_move": 0.00037407875061035156,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 3,
+        "result": "Mate by MCTS",
+        "total_moves": 2,
+        "mate_found": true,
+        "time_first_move": 1.5004050731658936,
+        "iterations_first_move": 20336,
+        "best_Q_first_move": 1.048,
+        "time_winning_move": 0.0003521442413330078,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 4,
+        "result": "Mate by MCTS",
+        "total_moves": 2,
+        "mate_found": true,
+        "time_first_move": 1.5003347396850586,
+        "iterations_first_move": 20379,
+        "best_Q_first_move": 1.048,
+        "time_winning_move": 0.0003609657287597656,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 5,
+        "result": "Mate by MCTS",
+        "total_moves": 2,
+        "mate_found": true,
+        "time_first_move": 1.5003678798675537,
+        "iterations_first_move": 20371,
+        "best_Q_first_move": 1.048,
+        "time_winning_move": 0.0003502368927001953,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 6,
+        "result": "Mate by MCTS",
+        "total_moves": 2,
+        "mate_found": true,
+        "time_first_move": 1.5003409385681152,
+        "iterations_first_move": 20426,
+        "best_Q_first_move": 1.048,
+        "time_winning_move": 0.0003447532653808594,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 7,
+        "result": "Mate by MCTS",
+        "total_moves": 2,
+        "mate_found": true,
+        "time_first_move": 1.500365972518921,
+        "iterations_first_move": 20383,
+        "best_Q_first_move": 1.048,
+        "time_winning_move": 0.0003452301025390625,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 8,
+        "result": "Mate by MCTS",
+        "total_moves": 2,
+        "mate_found": true,
+        "time_first_move": 1.5003671646118164,
+        "iterations_first_move": 20486,
+        "best_Q_first_move": 1.048,
+        "time_winning_move": 0.0003490447998046875,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 9,
+        "result": "Mate by MCTS",
+        "total_moves": 2,
+        "mate_found": true,
+        "time_first_move": 1.5003619194030762,
+        "iterations_first_move": 20471,
+        "best_Q_first_move": 1.048,
+        "time_winning_move": 0.00034999847412109375,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 10,
+        "result": "Mate by MCTS",
+        "total_moves": 2,
+        "mate_found": true,
+        "time_first_move": 1.5003540515899658,
+        "iterations_first_move": 20357,
+        "best_Q_first_move": 1.048,
+        "time_winning_move": 0.0003459453582763672,
+        "iterations_winning_move": 0
+      }
+    ],
+    "Mate en 2 - R vs K": [
+      {
+        "run": 1,
+        "result": "Mate by MCTS",
+        "total_moves": 5,
+        "mate_found": true,
+        "time_first_move": 1.5003259181976318,
+        "iterations_first_move": 9488,
+        "best_Q_first_move": 0.999,
+        "time_winning_move": 0.0004119873046875,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 2,
+        "result": "Mate by MCTS",
+        "total_moves": 7,
+        "mate_found": true,
+        "time_first_move": 1.500337839126587,
+        "iterations_first_move": 9579,
+        "best_Q_first_move": 0.999,
+        "time_winning_move": 0.0004830360412597656,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 3,
+        "result": "Mate by MCTS",
+        "total_moves": 7,
+        "mate_found": true,
+        "time_first_move": 1.5003259181976318,
+        "iterations_first_move": 9515,
+        "best_Q_first_move": 0.999,
+        "time_winning_move": 0.0004832744598388672,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 4,
+        "result": "Mate by MCTS",
+        "total_moves": 5,
+        "mate_found": true,
+        "time_first_move": 1.5003340244293213,
+        "iterations_first_move": 9624,
+        "best_Q_first_move": 0.999,
+        "time_winning_move": 0.00030803680419921875,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 5,
+        "result": "Mate by MCTS",
+        "total_moves": 5,
+        "mate_found": true,
+        "time_first_move": 1.5002391338348389,
+        "iterations_first_move": 9760,
+        "best_Q_first_move": 0.999,
+        "time_winning_move": 0.00030684471130371094,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 6,
+        "result": "Mate by MCTS",
+        "total_moves": 5,
+        "mate_found": true,
+        "time_first_move": 1.5002710819244385,
+        "iterations_first_move": 9614,
+        "best_Q_first_move": 0.999,
+        "time_winning_move": 0.00041222572326660156,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 7,
+        "result": "Mate by MCTS",
+        "total_moves": 7,
+        "mate_found": true,
+        "time_first_move": 1.5003159046173096,
+        "iterations_first_move": 9858,
+        "best_Q_first_move": 0.999,
+        "time_winning_move": 0.0004887580871582031,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 8,
+        "result": "Mate by MCTS",
+        "total_moves": 5,
+        "mate_found": true,
+        "time_first_move": 1.5002548694610596,
+        "iterations_first_move": 9460,
+        "best_Q_first_move": 0.999,
+        "time_winning_move": 0.0004100799560546875,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 9,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.5003058910369873,
+        "iterations_first_move": 9906,
+        "best_Q_first_move": 0.999,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 10,
+        "result": "Mate by MCTS",
+        "total_moves": 7,
+        "mate_found": true,
+        "time_first_move": 1.500319004058838,
+        "iterations_first_move": 9370,
+        "best_Q_first_move": 0.999,
+        "time_winning_move": 0.0004887580871582031,
+        "iterations_winning_move": 0
+      }
+    ],
+    "Mate en 3 - ejemplo": [
+      {
+        "run": 1,
+        "result": "Mate by MCTS",
+        "total_moves": 10,
+        "mate_found": true,
+        "time_first_move": 1.524231195449829,
+        "iterations_first_move": 65,
+        "best_Q_first_move": 11.77,
+        "time_winning_move": 0.0007669925689697266,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 2,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.5077331066131592,
+        "iterations_first_move": 66,
+        "best_Q_first_move": 11.629,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 3,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.5052440166473389,
+        "iterations_first_move": 66,
+        "best_Q_first_move": 11.629,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 4,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.502312183380127,
+        "iterations_first_move": 66,
+        "best_Q_first_move": 11.619,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 5,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.5048010349273682,
+        "iterations_first_move": 61,
+        "best_Q_first_move": 12.346,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 6,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.5044538974761963,
+        "iterations_first_move": 60,
+        "best_Q_first_move": 12.501,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 7,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.5006520748138428,
+        "iterations_first_move": 61,
+        "best_Q_first_move": 12.353,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 8,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.5195629596710205,
+        "iterations_first_move": 65,
+        "best_Q_first_move": 11.773,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 9,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.5094890594482422,
+        "iterations_first_move": 66,
+        "best_Q_first_move": 11.623,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 10,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.511307954788208,
+        "iterations_first_move": 66,
+        "best_Q_first_move": 11.63,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      }
+    ],
+    "Promotion tactic": [
+      {
+        "run": 1,
+        "result": "Mate by MCTS",
+        "total_moves": 3,
+        "mate_found": true,
+        "time_first_move": 1.5002338886260986,
+        "iterations_first_move": 14035,
+        "best_Q_first_move": 1.0,
+        "time_winning_move": 0.00045299530029296875,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 2,
+        "result": "Mate by MCTS",
+        "total_moves": 2,
+        "mate_found": true,
+        "time_first_move": 1.5002131462097168,
+        "iterations_first_move": 14341,
+        "best_Q_first_move": 1.0,
+        "time_winning_move": 0.00037598609924316406,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 3,
+        "result": "Mate by MCTS",
+        "total_moves": 4,
+        "mate_found": true,
+        "time_first_move": 1.5001509189605713,
+        "iterations_first_move": 13174,
+        "best_Q_first_move": 1.0,
+        "time_winning_move": 0.0006079673767089844,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 4,
+        "result": "Mate by MCTS",
+        "total_moves": 9,
+        "mate_found": true,
+        "time_first_move": 1.5001721382141113,
+        "iterations_first_move": 13876,
+        "best_Q_first_move": 1.0,
+        "time_winning_move": 0.0008881092071533203,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 5,
+        "result": "Mate by MCTS",
+        "total_moves": 2,
+        "mate_found": true,
+        "time_first_move": 1.500190019607544,
+        "iterations_first_move": 14564,
+        "best_Q_first_move": 1.0,
+        "time_winning_move": 0.0003707408905029297,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 6,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.5001771450042725,
+        "iterations_first_move": 14154,
+        "best_Q_first_move": 1.0,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 7,
+        "result": "Mate by MCTS",
+        "total_moves": 4,
+        "mate_found": true,
+        "time_first_move": 1.5001440048217773,
+        "iterations_first_move": 14019,
+        "best_Q_first_move": 1.0,
+        "time_winning_move": 0.0005910396575927734,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 8,
+        "result": "Mate by MCTS",
+        "total_moves": 3,
+        "mate_found": true,
+        "time_first_move": 1.5001819133758545,
+        "iterations_first_move": 14879,
+        "best_Q_first_move": 1.0,
+        "time_winning_move": 0.0005447864532470703,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 9,
+        "result": "Mate by MCTS",
+        "total_moves": 2,
+        "mate_found": true,
+        "time_first_move": 1.5002601146697998,
+        "iterations_first_move": 14602,
+        "best_Q_first_move": 1.0,
+        "time_winning_move": 0.00036716461181640625,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 10,
+        "result": "Mate by MCTS",
+        "total_moves": 4,
+        "mate_found": true,
+        "time_first_move": 1.5001862049102783,
+        "iterations_first_move": 14953,
+        "best_Q_first_move": 1.0,
+        "time_winning_move": 0.0005948543548583984,
+        "iterations_winning_move": 0
+      }
+    ],
+    "Complex mid-endgame": [
+      {
+        "run": 1,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.5140631198883057,
+        "iterations_first_move": 33,
+        "best_Q_first_move": 0.085,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 2,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.5377721786499023,
+        "iterations_first_move": 35,
+        "best_Q_first_move": -0.04,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 3,
+        "result": "Mate by MCTS",
+        "total_moves": 5,
+        "mate_found": true,
+        "time_first_move": 1.5064632892608643,
+        "iterations_first_move": 34,
+        "best_Q_first_move": -0.053,
+        "time_winning_move": 0.0008790493011474609,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 4,
+        "result": "Mate by MCTS",
+        "total_moves": 9,
+        "mate_found": true,
+        "time_first_move": 1.5300390720367432,
+        "iterations_first_move": 36,
+        "best_Q_first_move": 0.039,
+        "time_winning_move": 0.0012891292572021484,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 5,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.5112032890319824,
+        "iterations_first_move": 35,
+        "best_Q_first_move": -0.01,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 6,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.5120456218719482,
+        "iterations_first_move": 33,
+        "best_Q_first_move": 0.005,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 7,
+        "result": "Mate by MCTS",
+        "total_moves": 7,
+        "mate_found": true,
+        "time_first_move": 1.5335040092468262,
+        "iterations_first_move": 31,
+        "best_Q_first_move": -0.021,
+        "time_winning_move": 0.0011510848999023438,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 8,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.5093810558319092,
+        "iterations_first_move": 34,
+        "best_Q_first_move": 0.022,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 9,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.5318942070007324,
+        "iterations_first_move": 35,
+        "best_Q_first_move": -0.022,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 10,
+        "result": "Max moves reached",
+        "total_moves": 20,
+        "mate_found": false,
+        "time_first_move": 1.533566951751709,
+        "iterations_first_move": 30,
+        "best_Q_first_move": -0.01,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      }
+    ],
+    "Stalemate trap": [
+      {
+        "run": 1,
+        "result": "No move/Error",
+        "total_moves": 0,
+        "mate_found": false,
+        "time_first_move": 0.0,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 0,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 2,
+        "result": "No move/Error",
+        "total_moves": 0,
+        "mate_found": false,
+        "time_first_move": 0.0,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 0,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 3,
+        "result": "No move/Error",
+        "total_moves": 0,
+        "mate_found": false,
+        "time_first_move": 0.0,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 0,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 4,
+        "result": "No move/Error",
+        "total_moves": 0,
+        "mate_found": false,
+        "time_first_move": 0.0,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 0,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 5,
+        "result": "No move/Error",
+        "total_moves": 0,
+        "mate_found": false,
+        "time_first_move": 0.0,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 0,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 6,
+        "result": "No move/Error",
+        "total_moves": 0,
+        "mate_found": false,
+        "time_first_move": 0.0,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 0,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 7,
+        "result": "No move/Error",
+        "total_moves": 0,
+        "mate_found": false,
+        "time_first_move": 0.0,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 0,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 8,
+        "result": "No move/Error",
+        "total_moves": 0,
+        "mate_found": false,
+        "time_first_move": 0.0,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 0,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 9,
+        "result": "No move/Error",
+        "total_moves": 0,
+        "mate_found": false,
+        "time_first_move": 0.0,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 0,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      },
+      {
+        "run": 10,
+        "result": "No move/Error",
+        "total_moves": 0,
+        "mate_found": false,
+        "time_first_move": 0.0,
+        "iterations_first_move": 0,
+        "best_Q_first_move": 0,
+        "time_winning_move": NaN,
+        "iterations_winning_move": 0
+      }
+    ]
+  }
+}

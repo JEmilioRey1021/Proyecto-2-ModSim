@@ -16,24 +16,23 @@ class Node:
     W: float = 0.0
     Q: float = 0.0
     depth: int = 0
-    is_mate: bool = False  # Nueva bandera
+    is_mate: bool = False
+    mate_in_n: int = 999  # Distancia al mate (menor = mejor)
 
     def is_terminal(self):
         return self.board.is_checkmate() or self.board.is_stalemate() or \
                self.board.is_insufficient_material() or self.board.halfmove_clock >= 100
 
 def uct_value(child: 'Node', parent_N: int) -> float:
-    """UCT con bonus enorme para mates y penalización por profundidad excesiva"""
+    """UCT con prioridad absoluta para mates"""
     if child.N == 0:
         return float('inf')
     
-    # Si es mate, darle prioridad máxima
+    # Mates tienen prioridad infinita, ordenados por distancia
     if child.is_mate:
-        return float('inf') - child.depth  # Preferir mates más rápidos
+        return float('inf') - child.mate_in_n
     
-    # Penalización por profundidad para evitar ciclos
     depth_penalty = child.depth * 0.05
-    
     return child.Q + C_PUCT * math.sqrt(math.log(parent_N + 1) / child.N) - depth_penalty
 
 def select(node: 'Node') -> tuple['Node', list[tuple[str, any]]]:
@@ -58,7 +57,8 @@ def select(node: 'Node') -> tuple['Node', list[tuple[str, any]]]:
             'W': round(best_child.W, 2),
             'uct': round(uct_values[best_move], 3) if uct_values[best_move] != float('inf') else 'INF',
             'depth': best_child.depth,
-            'is_mate': best_child.is_mate
+            'is_mate': best_child.is_mate,
+            'mate_in_n': best_child.mate_in_n if best_child.is_mate else None
         })
         
         cur = best_child
@@ -66,14 +66,14 @@ def select(node: 'Node') -> tuple['Node', list[tuple[str, any]]]:
     return cur, debug_path
 
 PRIOR_N = 10
-PRIOR_W_MATE = 10000.0  # Aumentado dramáticamente
-PRIOR_W_CHECK = 100.0
+PRIOR_W_MATE = 1000.0
+PRIOR_W_CHECK = 50.0
 PRIOR_W_WIN = 5.0
 PRIOR_W_DRAW = 0.5
 PRIOR_W_LOSS = -5.0
 
 def expand(node: 'Node', tb=None, root_turn=None) -> tuple['Node', dict]:
-    """Expande con detección mejorada de mates"""
+    """Expande con detección CORRECTA de mates"""
     debug_info = {'phase': 'expand', 'expanded': False}
     
     if node.is_terminal():
@@ -83,37 +83,48 @@ def expand(node: 'Node', tb=None, root_turn=None) -> tuple['Node', dict]:
     legal_moves = list(node.board.legal_moves)
     piece_values = {1: 1, 2: 3, 3: 3, 4: 5, 5: 9, 6: 0}
     
-    # Primero: buscar mates inmediatos
+    # BUSCAR MATES INMEDIATOS
     mate_moves = []
     for mv in legal_moves:
         if mv not in tried:
-            nb = node.board.copy()
-            nb.push(mv)
-            if nb.is_checkmate():
-                mate_moves.append(mv)
+            test_board = node.board.copy()
+            test_board.push(mv)
+            # Después de nuestro movimiento, si el oponente está en jaque mate, ganamos
+            if test_board.is_checkmate():
+                mate_moves.append((mv, 1))
+                print(f"🎯 MATE EN 1 DETECTADO: {mv.uci()} desde posición {node.board.fen()[:20]}...")
     
-    # Si hay mates, expandir TODOS y retornar el primero
+    # Expandir TODOS los mates encontrados
     if mate_moves:
-        for mv in mate_moves:
+        for mv, mate_dist in mate_moves:
             nb = node.board.copy()
             nb.push(mv)
-            child = Node(nb, parent=node, move=mv, depth=node.depth + 1, is_mate=True)
-            child.N = PRIOR_N * 10
+            child = Node(
+                nb, 
+                parent=node, 
+                move=mv, 
+                depth=node.depth + 1, 
+                is_mate=True,
+                mate_in_n=mate_dist
+            )
+            child.N = PRIOR_N * 100  # Mucha confianza
             child.W = PRIOR_W_MATE * child.N
             child.Q = PRIOR_W_MATE
             node.children[mv] = child
         
-        first_mate = mate_moves[0]
+        best_mate = min(mate_moves, key=lambda x: x[1])  # Mate más rápido
         debug_info.update({
             'expanded': True,
-            'move': first_mate.uci(),
+            'move': best_mate[0].uci(),
             'prior_Q': PRIOR_W_MATE,
-            'depth': node.children[first_mate].depth,
+            'depth': node.children[best_mate[0]].depth,
             'is_mate': True,
+            'mate_in_n': best_mate[1],
             'total_mates_found': len(mate_moves)
         })
-        return node.children[first_mate], debug_info
+        return node.children[best_mate[0]], debug_info
     
+    # Si no hay mates, proceder con la expansión normal
     def move_priority(mv):
         score = 0
         b = node.board
@@ -125,7 +136,7 @@ def expand(node: 'Node', tb=None, root_turn=None) -> tuple['Node', dict]:
         is_check = b.is_check()
         
         if is_check:
-            score += 200  # Aumentado
+            score += 200
         
         if not b.is_checkmate() and is_piece_hanging(b, mv.to_square):
             score -= moved_value * 200
@@ -240,7 +251,7 @@ def rollout_policy(board: chess.Board, visited_positions: set) -> chess.Move | N
     if not moves:
         return None
 
-    # Primero buscar mates
+    # Buscar mates inmediatos
     for m in moves:
         board.push(m)
         if board.is_checkmate():
@@ -260,10 +271,10 @@ def rollout_policy(board: chess.Board, visited_positions: set) -> chess.Move | N
         
         pos_key = board.fen().split(' ')[0]
         if pos_key in visited_positions:
-            score -= 2000  # Penalización más fuerte
+            score -= 2000
         
         if board.is_check():
-            score += 250  # Aumentado
+            score += 250
         
         if is_piece_hanging(board, m.to_square):
             penalty = moved_piece_value * 100
@@ -413,7 +424,7 @@ def simulate(board, max_plies=ROLLOUT_MAX_PLIES, tb=None, root_turn=None) -> tup
             result = evaluate_endgame_position(sim_board, root_turn)
             debug_info['plies'] = plies
             debug_info['outcome'] = 'cycle_detected'
-            return result * 0.2, debug_info  # Penalización más fuerte
+            return result * 0.2, debug_info
         
         visited_positions.add(pos_key)
         
@@ -457,17 +468,17 @@ def mcts_search(root_board, time_limit=1.0, seed=None, tb=None, debug_callback=N
     root = Node(root_board.copy())
     root_turn = root_board.turn
     
-    # PRIMERO: Buscar mates inmediatos ANTES de iniciar MCTS
+    # PRIMERO: Buscar mates inmediatos
     immediate_mates = []
     for move in root_board.legal_moves:
         test_board = root_board.copy()
         test_board.push(move)
         if test_board.is_checkmate():
-            immediate_mates.append(move)
+            immediate_mates.append((move, 1))
     
-    # Si hay mate inmediato, retornarlo directamente
+    # Retornar mate inmediato si existe
     if immediate_mates:
-        best_mate = immediate_mates[0]  # Tomar el primero
+        best_mate = immediate_mates[0][0]
         stats = {
             'iters': 0,
             'root_N': 0,
@@ -475,19 +486,21 @@ def mcts_search(root_board, time_limit=1.0, seed=None, tb=None, debug_callback=N
             'best_Q': 10000.0,
             'mate_found': True,
             'immediate_mate': True,
+            'mate_in_n': 1,
             'all_moves': {
                 m.uci(): {
                     'N': 0,
-                    'Q': 10000.0 if m in immediate_mates else 0.0,
+                    'Q': 10000.0 if (m, 1) in immediate_mates else 0.0,
                     'W': 0,
-                    'is_mate': m in immediate_mates
+                    'is_mate': (m, 1) in immediate_mates,
+                    'mate_in_n': 1 if (m, 1) in immediate_mates else None
                 }
                 for m in root_board.legal_moves
             }
         }
         return best_mate, stats
     
-    # Si no hay mate inmediato, proceder con MCTS normal
+    # Búsqueda MCTS normal
     end = time.time() + max(0.05, time_limit)
     iters = 0
 
@@ -512,22 +525,24 @@ def mcts_search(root_board, time_limit=1.0, seed=None, tb=None, debug_callback=N
         if debug_callback:
             debug_callback(iters, iter_debug)
         
-        # Early exit si encontramos mate durante la búsqueda
-        if iters > 50:  # Después de algunas iteraciones
+        # Early exit si encontramos mate
+        if iters > 20:
             for move, child in root.children.items():
-                if child.is_mate and child.N > 0:
+                if child.is_mate and child.N > 5:
                     stats = {
                         'iters': iters,
                         'root_N': root.N,
                         'best_visits': child.N,
                         'best_Q': round(child.Q, 3),
                         'mate_found': True,
+                        'mate_in_n': child.mate_in_n,
                         'all_moves': {
                             m.uci(): {
                                 'N': c.N, 
                                 'Q': round(c.Q, 3), 
                                 'W': round(c.W, 2),
-                                'is_mate': c.is_mate
+                                'is_mate': c.is_mate,
+                                'mate_in_n': c.mate_in_n if c.is_mate else None
                             }
                             for m, c in sorted(root.children.items(), key=lambda x: x[1].N, reverse=True)
                         }
@@ -537,30 +552,32 @@ def mcts_search(root_board, time_limit=1.0, seed=None, tb=None, debug_callback=N
     if not root.children:
         return None, {'iters': iters, 'root_N': root.N}
     
-    # PRIORIDAD ABSOLUTA: Si hay un mate, jugarlo
+    # SELECCIÓN FINAL: Prioridad absoluta a mates
     mate_moves = [(move, child) for move, child in root.children.items() if child.is_mate]
     if mate_moves:
-        # Elegir el mate con más visitas (más explorado = más confiable)
-        best_mate_move, best_mate_child = max(mate_moves, key=lambda x: x[1].N)
+        # Elegir el mate más rápido y más explorado
+        best_mate_move, best_mate_child = min(mate_moves, key=lambda x: (x[1].mate_in_n, -x[1].N))
         stats = {
             'iters': iters,
             'root_N': root.N,
             'best_visits': best_mate_child.N,
             'best_Q': round(best_mate_child.Q, 3),
             'mate_found': True,
+            'mate_in_n': best_mate_child.mate_in_n,
             'all_moves': {
                 m.uci(): {
                     'N': c.N, 
                     'Q': round(c.Q, 3), 
                     'W': round(c.W, 2),
-                    'is_mate': c.is_mate
+                    'is_mate': c.is_mate,
+                    'mate_in_n': c.mate_in_n if c.is_mate else None
                 }
                 for m, c in sorted(root.children.items(), key=lambda x: x[1].N, reverse=True)
             }
         }
         return best_mate_move, stats
     
-    # Si no hay mate, elegir el mejor por visitas y Q
+    # Si no hay mate, mejor por visitas
     move_scores = {}
     for move, child in root.children.items():
         score = child.N + (child.Q * 200 if child.N > root.N * 0.03 else 0)
