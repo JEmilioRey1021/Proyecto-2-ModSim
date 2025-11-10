@@ -8,7 +8,7 @@ import numpy as np
 # ==================================================
 # Directorios de Archivos
 # ==================================================
-INPUT_FILE = "mcts_report_output/metricas/raw_results_1762555354.json"
+INPUT_FILE = "mcts_report_output/metricas/raw_results_1762657827.json"
 OUTPUT_DIR = "mcts_report_output/plots_adicionales"
 
 # ==================================================

@@ -1,0 +1,12 @@
+Posición,Mates,Runs,Rate
+Mate en 1 - Dama esquina,10,10,100.0
+Mate en 1 - Dama lateral,10,10,100.0
+Mate en 1 - Torre banda,10,10,100.0
+Mate en 1 - Dos torres,10,10,100.0
+Mate en 2 - Basic 1,10,10,100.0
+Mate en 2 - R vs K,9,10,90.0
+Promotion tactic,9,10,90.0
+Mate en 1 - Torre séptima,5,10,50.0
+Complex mid-endgame,3,10,30.0
+Mate en 3 - ejemplo,1,10,10.0
+Stalemate trap,0,10,0.0

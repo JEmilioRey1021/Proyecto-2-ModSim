@@ -1,0 +1,12 @@
+Posición,mate_rate,avg_time_1st,avg_iters_1st
+Mate en 1 - Dama esquina,100.0,0.0004901409149169922,0.0
+Mate en 1 - Torre séptima,50.0,1.5003483772277832,7525.2
+Mate en 1 - Dama lateral,100.0,0.00034968852996826173,0.0
+Mate en 1 - Torre banda,100.0,0.00029821395874023436,0.0
+Mate en 1 - Dos torres,100.0,0.00041968822479248046,0.0
+Mate en 2 - Basic 1,100.0,1.500368857383728,20349.8
+Mate en 2 - R vs K,90.0,1.5003029584884644,9617.4
+Mate en 3 - ejemplo,10.0,1.5089787483215331,64.2
+Promotion tactic,90.0,1.5001909494400025,14259.7
+Complex mid-endgame,30.0,1.5219932794570923,33.6
+Stalemate trap,0.0,0.0,0.0

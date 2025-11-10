@@ -1,0 +1,6 @@
+Característica,Valor
+Constante UCT (C_PUCT),2.5
+Plies Max. en Rollout,30.0
+Nodos de Prioridad (N),10.0
+Peso Prioridad Mate (Q),1000.0
+Peso Prioridad Jaque (Q),50.0

@@ -1,12 +1,23 @@
 Posición,Mates,Runs,Rate
-Mate en 1 - Dama esquina,10,10,100.0
-Mate en 1 - Dama lateral,10,10,100.0
-Mate en 1 - Torre banda,10,10,100.0
-Mate en 1 - Dos torres,10,10,100.0
-Mate en 2 - Basic 1,10,10,100.0
-Mate en 2 - R vs K,9,10,90.0
-Promotion tactic,9,10,90.0
-Mate en 1 - Torre séptima,5,10,50.0
-Complex mid-endgame,3,10,30.0
-Mate en 3 - ejemplo,1,10,10.0
-Stalemate trap,0,10,0.0
+Mate en 1 - Dama esquina,25,25,100.0
+Mate en 2 - R vs K,25,25,100.0
+Lucena Position,25,25,100.0
+Two Rooks vs King,25,25,100.0
+King and Queen vs King (WTM),25,25,100.0
+King and Rook vs King (WTM),25,25,100.0
+Mate en 2 - Basic 1,25,25,100.0
+Mate en 1 - Dos torres,25,25,100.0
+Mate en 1 - Torre banda,25,25,100.0
+Mate en 1 - Dama lateral,25,25,100.0
+Promotion tactic,24,25,96.0
+Mate en 1 - Torre séptima,11,25,44.0
+Rook vs Pawn on 7th (Rook behind),9,25,36.0
+Complex mid-endgame,5,25,20.0
+Mate en 3 - ejemplo,0,25,0.0
+King and Pawn endgame 1,0,25,0.0
+King and Pawn endgame 2 (Opposition),0,25,0.0
+Philidor Position (Rook),0,25,0.0
+Bishop and Knight vs King (starting),0,25,0.0
+Simple Passed Pawn,0,25,0.0
+Simple Passed Pawn 2,0,25,0.0
+Stalemate trap,0,25,0.0

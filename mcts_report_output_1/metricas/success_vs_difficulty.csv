@@ -1,0 +1,12 @@
+Posición,Tasa_Mate_%,Dificultad
+Mate en 1 - Dama esquina,100.0,Mate en 1
+Mate en 1 - Dama lateral,100.0,Mate en 1
+Mate en 1 - Torre banda,100.0,Mate en 1
+Mate en 1 - Dos torres,100.0,Mate en 1
+Mate en 2 - Basic 1,100.0,Mate en 2
+Mate en 2 - R vs K,90.0,Mate en 2
+Promotion tactic,90.0,Complejo/Draw
+Mate en 1 - Torre séptima,50.0,Mate en 1
+Complex mid-endgame,30.0,Complejo/Draw
+Mate en 3 - ejemplo,10.0,Mate en 3
+Stalemate trap,0.0,Complejo/Draw
